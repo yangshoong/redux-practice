@@ -16,18 +16,38 @@ function App() {
     dispatch({ type: "LOGIN", payload: { id: "ost", password: "123" } })
   }
 
+  const logout = () => {
+    dispatch({ type: "LOGOUT", payload: { id: "", password: "" } })
+  }
+
   const decrease = () => {
     dispatch({ type: "DECREMENT", payload: { num: 5 } })
   }
 
   return (
     <div>
-      <h1>{id},{password}</h1>
-      <h1>{count}</h1>
-      <button onClick={increase}>증가</button>
-      <button onClick={login}>Login</button>
-      <button onClick={decrease}>감소</button>
-      <Box />
+      <div className="print">
+        <h3>
+          id: {id}
+        </h3>
+        <h3>
+          password: {password}
+        </h3>
+        <div>
+          <h1>{count}</h1>
+        </div>
+      </div>
+      <div className="box" >
+        <Box />
+      </div>
+      <div className="buttons">
+        <button onClick={increase}>증가</button>
+        <button onClick={login}>Login</button>
+        <button onClick={logout}>Logout</button>
+        <button onClick={decrease}>감소</button>
+      </div>
+
+
     </div>
   );
 }
